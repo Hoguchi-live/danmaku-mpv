@@ -6,7 +6,8 @@ struct State state;
 void init() {
     state.window = &window;
 
-    renderer_init(&state.renderer);
+    state.renderer = renderer_create();
+    renderer_init(state.renderer);
 }
 
 void destroy() {
@@ -48,3 +49,4 @@ int main(int argc, char *argv[]) {
     window_create(init, destroy, tick, update, render);
     window_loop();
 }
+

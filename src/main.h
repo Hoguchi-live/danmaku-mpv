@@ -2,6 +2,7 @@
 #define _MAIN_H_
 
 #include "gfx/window.h"
+#include "gfx/renderer.h"
 #include "gfx/player.h"
 #include "gfx/gfx.h"
 
@@ -108,3 +109,4 @@ void init();
 //
 //
 #endif
+

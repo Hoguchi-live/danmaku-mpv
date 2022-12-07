@@ -1,12 +1,14 @@
 #include "renderer.h"
 #include "../state.h"
 
+struct Renderer* renderer_create() {
+    return malloc(sizeof(struct Renderer));
+}
 void renderer_init(struct Renderer *self) {
-    *self = (struct Renderer) {0};
     self->current_shader = SHADER_NONE;
 
     self->shaders[SHADER_MPV] = shader_create(
-        "res/shaders/screen_vs.glsl", "res/shaders/screen_gs.glsl",
+        "res/shaders/screen_vs.glsl", "res/shaders/screen_fs.glsl",
         2, (struct VertexAttr[]) {
             { .index = 0, .name = "pos" },
             { .index = 1, .name = "texcoord" }
@@ -19,6 +21,7 @@ void renderer_init(struct Renderer *self) {
     self->ibo = vbo_create(GL_ELEMENT_ARRAY_BUFFER, true);
 }
 
+
 void renderer_destroy(struct Renderer *self) {
     for (size_t i = 0; i <= SHADERS_LAST; i++) {
         shader_destroy(self->shaders[i]);
@@ -27,6 +30,8 @@ void renderer_destroy(struct Renderer *self) {
     vao_destroy(self->vao);
     vbo_destroy(self->vbo);
     vbo_destroy(self->ibo);
+
+    free(self);
 }
 
 void renderer_update(struct Renderer *self) {
@@ -165,3 +170,4 @@ void renderer_use_shader(struct Renderer *self, enum ShaderType shader) {
 //        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 //    }
 //}
+

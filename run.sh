@@ -1,1 +1,1 @@
-./bin/junko ./assets/vid.mkv
+./bin/junko ./assets/*

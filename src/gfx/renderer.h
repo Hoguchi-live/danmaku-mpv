@@ -41,6 +41,7 @@ struct Renderer {
     struct VAO vao;
 };
 
+struct Renderer* renderer_create();
 void renderer_init(struct Renderer *self);
 void renderer_destroy(struct Renderer *self);
 void renderer_update(struct Renderer *self);

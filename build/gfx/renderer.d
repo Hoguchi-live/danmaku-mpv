@@ -94,7 +94,8 @@ build/gfx/renderer.o: src/gfx/renderer.c src/gfx/renderer.h src/gfx/../util/util
   src/gfx/gfx.h lib/glad/include/glad/glad.h \
   lib/glad/include/KHR/khrplatform.h lib/glfw/include/GLFW/glfw3.h \
   src/gfx/shader.h src/gfx/texture.h src/gfx/vao.h src/gfx/vbo.h \
-  src/gfx/../state.h src/gfx/../gfx/gfx.h src/gfx/../gfx/window.h
+  src/gfx/../state.h src/gfx/../gfx/gfx.h src/gfx/../gfx/renderer.h \
+  src/gfx/../gfx/window.h
 src/gfx/renderer.c:
 src/gfx/renderer.h:
 src/gfx/../util/util.h:
@@ -225,4 +226,5 @@ src/gfx/vao.h:
 src/gfx/vbo.h:
 src/gfx/../state.h:
 src/gfx/../gfx/gfx.h:
+src/gfx/../gfx/renderer.h:
 src/gfx/../gfx/window.h:

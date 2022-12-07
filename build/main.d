@@ -93,7 +93,8 @@ build/main.o: src/main.c src/main.h src/gfx/window.h src/gfx/gfx.h \
   lib/cglm/include/cglm/struct/affine2d.h \
   lib/cglm/include/cglm/struct/../affine2d.h src/gfx/../util/ivec2.h \
   src/gfx/../util/fmath.h src/gfx/../util/types.h src/gfx/../util/time.h \
-  src/gfx/player.h src/state.h src/util/util.h
+  src/gfx/renderer.h src/gfx/shader.h src/gfx/texture.h src/gfx/vao.h \
+  src/gfx/vbo.h src/gfx/player.h src/state.h src/util/util.h
 src/main.c:
 src/main.h:
 src/gfx/window.h:
@@ -219,6 +220,11 @@ src/gfx/../util/ivec2.h:
 src/gfx/../util/fmath.h:
 src/gfx/../util/types.h:
 src/gfx/../util/time.h:
+src/gfx/renderer.h:
+src/gfx/shader.h:
+src/gfx/texture.h:
+src/gfx/vao.h:
+src/gfx/vbo.h:
 src/gfx/player.h:
 src/state.h:
 src/util/util.h:
