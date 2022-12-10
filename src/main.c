@@ -6,6 +6,9 @@ struct State state;
 void init() {
     state.window = &window;
 
+    state.player = player_create(); 
+    player_init(state.player);
+
     state.renderer = renderer_create();
     renderer_init(state.renderer);
 }

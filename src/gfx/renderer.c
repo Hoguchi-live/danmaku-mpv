@@ -9,7 +9,7 @@ void renderer_init(struct Renderer *self) {
 
     self->shaders[SHADER_MPV] = shader_create(
         "res/shaders/screen_vs.glsl", "res/shaders/screen_fs.glsl",
-        2, (struct VertexAttr[]) {
+        2, (struct VertexAttr[]){
             { .index = 0, .name = "pos" },
             { .index = 1, .name = "texcoord" }
         });
@@ -18,7 +18,7 @@ void renderer_init(struct Renderer *self) {
 
     self->vao = vao_create();
     self->vbo = vbo_create(GL_ARRAY_BUFFER, true);
-    self->ibo = vbo_create(GL_ELEMENT_ARRAY_BUFFER, true);
+    //self->ibo = vbo_create(GL_ELEMENT_ARRAY_BUFFER, true);
 }
 
 
@@ -61,9 +61,34 @@ void renderer_use_shader(struct Renderer *self, enum ShaderType shader) {
     shader_bind(self->shader);
 }
 
+void renderer_screen(struct Renderer *self, vec2s size) {
+    renderer_use_shader(self, SHADER_MPV);
+
+    vbo_buffer(self->vbo, (f32[]) {
+        0, 0, 0,
+        0, size.y, 0,
+        size.x, size.y, 0,
+        size.x, 0, 0,
+    }, 0, (4 * 3) * sizeof(f32));
+
+    vbo_buffer(self->ibo, (u32[]) {
+        3, 0, 1, 3, 1, 2
+    }, 0, 6 * sizeof(u32));
+
+    vao_attr(self->vao, self->vbo, 0, 3, GL_FLOAT, 0, 0);
+
+    vao_bind(self->vao);
+    vbo_bind(self->ibo);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void *) 0);
+
+
+    
+}
+
 //void renderer_quad_color(
 //    struct Renderer *self, vec2s size,
 //    vec4s color, mat4s model) {
+
 //    renderer_use_shader(self, SHADER_BASIC_COLOR);
 //    renderer_set_view_proj(self);
 //    shader_uniform_mat4(self->shader, "m", model);
