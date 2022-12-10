@@ -1,5 +1,7 @@
 # Other
 *.mp4
+build/*
+bin/*
 
 # Prerequisites
 *.d

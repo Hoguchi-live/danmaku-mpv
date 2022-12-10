@@ -1,3 +1,3 @@
 # junko-mpv
-
-mpv video player with additional optimized danmaku feature using OpenGL.
+##WIP!
+MPV-based video player with additional optimized danmaku features using OpenGL.
